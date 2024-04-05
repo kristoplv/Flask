@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>{% block title %}Home{% endblock %}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Lensu Kutsud OÜ</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/">Esileht</a></li>
+      <li><a href="/koolitused">Koolitused</a></li>
+      <li><a href="/kursused">Kursused</a></li>
+      <li><a href="/tooted">Tooted</a></li>
+    </ul>
+  </div>
+</nav>
+
+ {% with messages = get_flashed_messages(with_categories=true) %}
+ {% if messages %}
+    {% for category, message in messages %}
+    {% if category == "error" %}
+    <div class="alert alert-danger alter-dismissable" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% else %}
+    <div class="alert alert-success alter-dismissable" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endif %}
+    {% endfor %}
+ {% endif %}
+ {% endwith %}
+
+    <div class="container" style="display:flex;justify-content:center;">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+
+</body>
+</html>
