@@ -1,2 +1,51 @@
 {% extends "base.html" %}
 {% block title %}Tooted{% endblock %}
+{% block content %}
+<h1>Mänguasjad</h1>
+<div class="toode">
+    {% for item in toys %}
+    <div class="item">
+        <img class="toode_img" src={{item.img}} alt="">
+        <p><b>nimi:</b>  {{item.name}}</p>
+        <p></p>
+        <p><b>nimi:</b>  {{item.data}}</p>
+        <p></p>
+        <p><b>nimi:</b> {{item.qty}}</p>
+        <button>Lisa ostukorvi</button>
+    </div>
+    {% endfor %}
+</div>
+<br>
+<br>
+<h1>Toit</h1>
+<div class="toode">
+    {% for item in food %}
+    <div class="item">
+        <img class="toode_img" src={{item.img}} alt="">
+        <p><b>nimi:</b>  {{item.name}}</p>
+        <p></p>
+        <p><b>nimi:</b>  {{item.data}}</p>
+        <p></p>
+        <p><b>nimi:</b> {{item.qty}}</p>
+        <button>Lisa ostukorvi</button>
+    </div>
+    {% endfor %}
+</div>
+<br>
+<br>
+<h1>Kasulikud</h1>
+<br>
+<div class="toode">
+    {% for item in misc %}
+    <div class="item">
+        <img class="toode_img" src={{item.img}} alt="">
+        <p><b>nimi:</b>  {{item.name}}</p>
+        <p></p>
+        <p><b>nimi:</b>  {{item.data}}</p>
+        <p></p>
+        <p><b>nimi:</b> {{item.qty}}</p>
+        <button>Lisa ostukorvi</button>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

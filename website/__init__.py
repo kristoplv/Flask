@@ -15,11 +15,13 @@ def create_app():
 
     from .views import views
     from .auth import auth
+    from .inject import inject
 
     app.register_blueprint(views, url_prefix="/")
     app.register_blueprint(auth, url_prefix="/")
+    app.register_blueprint(inject, url_prefix="/")
 
-    from .models import User, Note
+    from .models import User, Note, Koolitus
 
     create_database(app)
 

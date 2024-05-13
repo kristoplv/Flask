@@ -5,7 +5,6 @@ from . import db
 from flask_login import login_user, login_required, logout_user, current_user
 
 
-
 auth = Blueprint("auth", __name__)
 
 @auth.route("/login", methods=["GET", "POST"])
@@ -42,7 +41,7 @@ def sign():
         pw_rep = request.form.get("pass_rep")
 
         user = User.query.filter_by(email=email).first()
-        if User:
+        if user:
             flash("Email already exists!", category="error")
         elif len(email) < 4:
             flash("Email must be greater than 3 characters!", category="error")
@@ -58,7 +57,7 @@ def sign():
             db.session.commit()
 
             flash("Account created!", category="success")
-            login_user(user, remember=True)
+            login_user(new_user, remember=True)
             return redirect(url_for("views.home"))
 
     return render_template("signup.html")

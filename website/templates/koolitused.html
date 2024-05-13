@@ -1,2 +1,15 @@
 {% extends "base.html" %}
 {% block title %}Koolitused{% endblock %}
+{% block content %}
+{% for item in resp1 %}
+<div class="koolitus">
+    <h1>{{item.name}}</h1>
+    <h2>{{item.when}}</h2>
+    <h2></h2>
+    <img class="pilt" src={{item.img}} alt="puudub">
+    <h3>{{item.data}}</h3>
+    <button type="button" class="close">Osale</button>
+</div>
+{% endfor %}
+
+{% endblock %}
